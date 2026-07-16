@@ -1,16 +1,81 @@
-# React + Vite
+# 如意管理系统
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+一个基于 React 19 与 Vite 构建的轻量管理后台。界面采用“现代东方台账”设计语言，以暖灰纸色、墨色排版和朱砂强调色呈现用户、业务数据与系统运行状态。
 
-Currently, two official plugins are available:
+## 设计特点
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 窄侧边导航，移动端自动切换为底部导航
+- 非对称仪表盘布局，突出关键指标与运营动态
+- 中文宋体标题与系统黑体正文形成清晰层级
+- 使用细线、留白和纸张微纹理替代玻璃拟态、光晕与装饰性渐变
+- 支持键盘焦点、跳到正文、减少动态效果和语义化表格
+- 不依赖在线字体、网络图片或额外 UI 组件库
 
-## React Compiler
+## 页面
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| 路由 | 说明 |
+| --- | --- |
+| `/dashboard` | 首页概览、关键指标、快捷入口、最近用户与系统记录 |
+| `/users` | 用户管理模块状态与规划能力 |
+| `/data` | 数据管理模块状态与规划能力 |
+| `/settings` | 系统设置模块状态与规划能力 |
+| 其他路径 | 品牌化 404 页面 |
 
-## Expanding the Oxlint configuration
+用户、数据与设置页面目前仅提供界面结构和诚实的空状态，不包含后端接口或虚构的 CRUD 功能。
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 本地运行
+
+环境要求：Node.js 20 或更高版本。
+
+```bash
+npm install
+npm run dev
+```
+
+开发服务默认运行在 `http://localhost:5173`。
+
+## 验证与构建
+
+```bash
+# 静态检查
+npm run lint
+
+# 生产构建
+npm run build
+
+# 本地预览生产构建
+npm run preview
+```
+
+生产文件输出到 `dist/`。
+
+## 项目结构
+
+```text
+src/
+├─ components/          # 全局框架、模块空状态和共享 UI
+├─ features/            # 仪表盘、用户、数据与设置页面
+├─ mock/                # 本地演示数据
+├─ pages/               # 404 等独立页面
+├─ styles/              # 设计令牌、基础组件和纸张效果
+├─ App.jsx              # 路由配置
+└─ main.jsx             # 应用入口
+```
+
+## 截图
+
+最终桌面端截图约定使用 1440 × 1000 视口，并保存至：
+
+```text
+screenshots/dashboard-redesign.png
+```
+
+截图应覆盖问候区、关键指标、快捷入口和主要数据面板。
+
+## 技术栈
+
+- React 19
+- React Router 7
+- Vite 8
+- 原生 CSS
+- Oxlint
